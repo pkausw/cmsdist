@@ -4,20 +4,20 @@
 %define python_env PYTHON3PATH
 
 ##Pytorch Common build files
-BuildRequires: git cmake
+BuildRequires: git cmake python3 eigen
 
-Source: https://github.com/pytorch/pytorch/archive/refs/tags/v%{realversion}.tar.gz
+Source: https://github.com/pytorch/pytorch/releases/download/v%{realversion}/pytorch-v%{realversion}.tar.gz
 
 %prep
 
-%setup -q -n %{n}-%{realversion}
+%setup -q -n %{n}-v%{realversion}
 
 %build
 # cmake flags
 
 pwd
 ls
-cmake ../%{n}-%{realversion}
+cmake -DCMAKE_USE_GLOG=OFF -DCMAKE_USE_CUDA=OFF -DBUILD_PYTHON=OFF -DBUILD_DOCS=OFF ../%{n}-v%{realversion}
 
 %install
 # make
