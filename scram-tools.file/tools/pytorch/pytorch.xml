@@ -1,0 +1,9 @@
+<tool name="pytorch" version="@TOOL_VERSION@">
+  <client>
+    <environment name="PYTORCH_BASE" default="@TOOL_ROOT@"/>
+    <environment name="LIBDIR" default="$PYTORCH_BASE/lib"/>
+    <environment name="INCLUDE" default="$PYTORCH_BASE/include"/>
+  </client>
+  <runtime name="PATH" value="$PYTORCH_BASE/bin" type="path"/>
+  <flags SYSTEM_INCLUDE="1"/>
+</tool>
